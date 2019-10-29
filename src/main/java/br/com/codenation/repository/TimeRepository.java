@@ -1,5 +1,6 @@
 package br.com.codenation.repository;
 
+import br.com.codenation.desafio.exceptions.IdentificadorUtilizadoException;
 import br.com.codenation.desafio.exceptions.TimeNaoEncontradoException;
 import br.com.codenation.domain.Jogador;
 import br.com.codenation.domain.Time;
@@ -19,10 +20,16 @@ public class TimeRepository {
     }
 
     public void inserir(Time time){
+        if(times.stream().anyMatch(t -> t.getId().equals(time.getId()))){
+            throw new IdentificadorUtilizadoException("Este identificador já existe.");
+        }
+
         times.add(time);
     }
 
     public void definirCapitao(Long idJogador){
+        Jogador jogador = times.stream().filter(t -> t.getJogadores().stream().filter(j -> j.getId().equals(idJogador))).findFirst();
+        Time timeDoJogador = times.stream().filter(t -> t.getJogadores().stream().filter(j -> j.getId().equals(idJogador)));
 
     }
 

@@ -1,6 +1,8 @@
 package br.com.codenation.domain;
 
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 public class Time {
@@ -8,18 +10,9 @@ public class Time {
     private String nome;
     private LocalDate dataCriacao;
     private String corUniformePrincipal;
-    private string corUniformeSegundario;
+    private String corUniformeSegundario;
     private Jogador capitao;
-
-    public Jogador getCapitao() {
-        return capitao;
-    }
-
-    public void setCapitao(Jogador capitao) {
-        this.capitao = capitao;
-    }
-
-    private Set<Jogador> jogadores;
+    private Set<Jogador> jogadores = new HashSet<>();
 
     public Long getId() {
         return id;
@@ -53,12 +46,20 @@ public class Time {
         this.corUniformePrincipal = corUniformePrincipal;
     }
 
-    public string getCorUniformeSegundario() {
+    public String getCorUniformeSegundario() {
         return corUniformeSegundario;
     }
 
-    public void setCorUniformeSegundario(string corUniformeSegundario) {
+    public void setCorUniformeSegundario(String corUniformeSegundario) {
         this.corUniformeSegundario = corUniformeSegundario;
+    }
+
+    public Jogador getCapitao() {
+        return capitao;
+    }
+
+    public void setCapitao(Jogador capitao) {
+        this.capitao = capitao;
     }
 
     public Set<Jogador> getJogadores() {
@@ -67,5 +68,19 @@ public class Time {
 
     public void setJogadores(Set<Jogador> jogadores) {
         this.jogadores = jogadores;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Time)) return false;
+        Time time = (Time) o;
+        return getId().equals(time.getId()) &&
+                getNome().equals(time.getNome());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId(), getNome());
     }
 }

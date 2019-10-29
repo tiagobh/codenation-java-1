@@ -1,5 +1,7 @@
 package br.com.codenation.repository;
 
+import br.com.codenation.desafio.exceptions.IdentificadorUtilizadoException;
+import br.com.codenation.desafio.exceptions.TimeNaoEncontradoException;
 import br.com.codenation.domain.Jogador;
 
 import javax.annotation.PostConstruct;
@@ -15,6 +17,7 @@ public class JogadorRepository {
     }
 
     public  void inserir(Jogador jogador){
+        validarJogador(jogador);
         jogadores.add(jogador);
     }
 
@@ -23,6 +26,13 @@ public class JogadorRepository {
         if(Objects.isNull(jogadores)){
             jogadores = new HashSet<>();
         }
+    }
+
+    private void validarJogador(Jogador jogador){
+        if(Objects.isNull(jogador)) throw new NullPointerException("Jogador está nulo");
+        if(jogadores.stream().anyMatch(j -> j.getId().equals(jogador.getId()))) throw new IdentificadorUtilizadoException();
+        if(Objects.isNull(jogador.getTime())) throw  new NullPointerException("Time do jogador está nulo");
+        if(jogadores.stream().noneMatch(j -> j.getTime().getId().equals(jogador.getTime().getId()))) throw new TimeNaoEncontradoException();
     }
 
 

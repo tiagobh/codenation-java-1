@@ -1,7 +1,5 @@
 package br.com.codenation.repository;
 
-import br.com.codenation.domain.Time;
-
 import java.util.Objects;
 
 public final class DataLoader {
