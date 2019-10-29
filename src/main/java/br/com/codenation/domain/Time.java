@@ -1,9 +1,7 @@
 package br.com.codenation.domain;
 
 import java.time.LocalDate;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 
 public class Time {
     private Long id;
@@ -12,7 +10,7 @@ public class Time {
     private String corUniformePrincipal;
     private String corUniformeSegundario;
     private Jogador capitao;
-    private Set<Jogador> jogadores = new HashSet<>();
+    private List<Jogador> jogadores = new ArrayList<>();
 
     public Long getId() {
         return id;
@@ -62,11 +60,11 @@ public class Time {
         this.capitao = capitao;
     }
 
-    public Set<Jogador> getJogadores() {
+    public List<Jogador> getJogadores() {
         return jogadores;
     }
 
-    public void setJogadores(Set<Jogador> jogadores) {
+    public void setJogadores(List<Jogador> jogadores) {
         this.jogadores = jogadores;
     }
 

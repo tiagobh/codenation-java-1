@@ -3,8 +3,8 @@ package br.com.codenation.repository;
 import java.util.Objects;
 
 public final class DataLoader {
-    private TimeRepository timesDb;
-    private JogadorRepository jogadoresDb;
+    private static TimeRepository timesDb;
+    private static JogadorRepository jogadoresDb;
 
     public static TimeRepository getTimesRepo(){
         if(Objects.isNull(timesDb)){
