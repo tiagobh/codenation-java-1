@@ -7,6 +7,7 @@ import br.com.codenation.desafio.exceptions.TimeNaoEncontradoException;
 import br.com.codenation.domain.Jogador;
 import br.com.codenation.domain.Time;
 
+import java.time.LocalDate;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -24,10 +25,6 @@ public class TimeRepository {
     }
 
     public void inserir(Time time){
-        if(times.stream().anyMatch(t -> t.getId().equals(time.getId()))){
-            throw new IdentificadorUtilizadoException("Este identificador já existe.");
-        }
-
         times.add(time);
     }
 
@@ -45,18 +42,21 @@ public class TimeRepository {
         return times.stream().anyMatch(t -> t.getId().equals(idTime));
     }
 
-    public Jogador getCapítao(Long idTime){
+    public Long getCapítao(Long idTime){
         Time time = getTimeById(idTime);
         if(Objects.isNull(time.getCapitao())){
             throw new CapitaoNaoInformadoException();
         }else{
-            return time.getCapitao();
+            return time.getCapitao().getId();
         }
     }
 
     public List<Long> getJogadoresByIdTime(Long idTime){
         Time time = getTimeById(idTime);
-        return time.getJogadores().stream().map(Jogador::getId).collect(Collectors.toList());
+        return time.getJogadores().stream()
+                .sorted(Comparator.comparing(Jogador::getId))
+                .map(Jogador::getId)
+                .collect(Collectors.toList());
     }
 
     public Long getMelhorJogadorTime(Long idTime){
@@ -86,14 +86,46 @@ public class TimeRepository {
                 .getId();
     }
 
+    public List<Long> getAllTimes(){
+        return times.stream()
+                .sorted(Comparator.comparing(Time::getId))
+                .map(Time::getId)
+                .collect(Collectors.toList());
+    }
+
     public Time getTimeById(Long idTime){
         if(Objects.isNull(idTime)) throw new NullPointerException("ID do Time nulo");
         Time time = times.stream().filter(t -> t.getId().equals(idTime)).findFirst().orElseThrow(TimeNaoEncontradoException::new);
         return time;
     }
 
-    public List<Time> getAllTimes(){
-        return times.stream().sorted(Comparator.comparing(Time::getId)).collect(Collectors.toList());
+    public String getCorCamisaTimeFora(Long idTimeCasa, Long idTimeFora){
+        Time timeCasa = getTimeById(idTimeCasa);
+        Time timeFora = getTimeById(idTimeFora);
+
+        return timeCasa.getCorUniformePrincipal().equalsIgnoreCase(timeFora.getCorUniformePrincipal()) ?
+                timeFora.getCorUniformeSegundario() : timeFora.getCorUniformePrincipal();
     }
+
+    public void validarDadosTime(Long id, String nome, LocalDate dataCriacao, String corUniformePrincipal, String corUniformeSecundario){
+        Map<String, Object> parametros = new HashMap<>();
+        parametros.put("ID do time", id);
+        parametros.put("Nome do time", nome);
+        parametros.put("Data Criação", dataCriacao);
+        parametros.put("Cor Uniforme Principal",corUniformePrincipal);
+        parametros.put("Cor Uniforme Seguncário", corUniformeSecundario);
+
+        parametros.forEach((key, valor) ->{
+            if(Objects.isNull(valor)) throw new NullPointerException(key + " é nulo.");
+            if(valor instanceof String){
+                if(((String) valor).isEmpty())
+                    throw new IllegalArgumentException(key + " está vazio.");
+            }
+        });
+
+        if(times.stream().anyMatch(t -> t.getId().equals(id)))
+            throw new IdentificadorUtilizadoException();
+    }
+    //git
 
 }

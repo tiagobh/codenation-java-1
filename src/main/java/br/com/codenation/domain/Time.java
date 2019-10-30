@@ -12,6 +12,14 @@ public class Time {
     private Jogador capitao;
     private List<Jogador> jogadores = new ArrayList<>();
 
+    public Time(Long id, String nome, LocalDate dataCriacao, String corUniformePrincipal, String corUniformeSegundario) {
+        this.id = id;
+        this.nome = nome;
+        this.dataCriacao = dataCriacao;
+        this.corUniformePrincipal = corUniformePrincipal;
+        this.corUniformeSegundario = corUniformeSegundario;
+    }
+
     public Long getId() {
         return id;
     }
@@ -81,4 +89,5 @@ public class Time {
     public int hashCode() {
         return Objects.hash(getId(), getNome());
     }
+    //git
 }

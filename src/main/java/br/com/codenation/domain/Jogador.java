@@ -12,6 +12,15 @@ public class Jogador {
     private Integer nivelHabilidade;
     private BigDecimal salario;
 
+    public Jogador(Long id, Time time, String nome, LocalDate dataNascimento, Integer nivelHabilidade, BigDecimal salario) {
+        this.id = id;
+        this.time = time;
+        this.nome = nome;
+        this.dataNascimento = dataNascimento;
+        this.nivelHabilidade = nivelHabilidade;
+        this.salario = salario;
+    }
+
     public Long getId() {
         return id;
     }
@@ -73,4 +82,5 @@ public class Jogador {
     public int hashCode() {
         return Objects.hash(getNome(), getDataNascimento());
     }
+
 }
