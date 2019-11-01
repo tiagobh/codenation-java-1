@@ -6,19 +6,21 @@ import java.util.Objects;
 
 public class Jogador {
     private Long id;
-    private Time time;
+    private Long idTime;
     private String nome;
     private LocalDate dataNascimento;
     private Integer nivelHabilidade;
     private BigDecimal salario;
+    private boolean capitao;
 
-    public Jogador(Long id, Time time, String nome, LocalDate dataNascimento, Integer nivelHabilidade, BigDecimal salario) {
+    public Jogador(Long id, Long idTime, String nome, LocalDate dataNascimento, Integer nivelHabilidade, BigDecimal salario) {
         this.id = id;
-        this.time = time;
+        this.idTime = idTime;
         this.nome = nome;
         this.dataNascimento = dataNascimento;
         this.nivelHabilidade = nivelHabilidade;
         this.salario = salario;
+
     }
 
     public Long getId() {
@@ -29,13 +31,6 @@ public class Jogador {
         this.id = id;
     }
 
-    public Time getTime() {
-        return time;
-    }
-
-    public void setTime(Time time) {
-        this.time = time;
-    }
 
     public String getNome() {
         return nome;
@@ -69,6 +64,22 @@ public class Jogador {
         this.salario = salario;
     }
 
+    public Long getIdTime() {
+        return idTime;
+    }
+
+    public void setIdTime(Long idTime) {
+        this.idTime = idTime;
+    }
+
+    public boolean isCapitao() {
+        return capitao;
+    }
+
+    public void setCapitao(boolean capitao) {
+        this.capitao = capitao;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -83,4 +94,16 @@ public class Jogador {
         return Objects.hash(getNome(), getDataNascimento());
     }
 
+    @Override
+    public String toString() {
+        return "Jogador{" +
+                "id=" + id +
+                ", idTime=" + idTime +
+                ", nome='" + nome + '\'' +
+                ", dataNascimento=" + dataNascimento +
+                ", nivelHabilidade=" + nivelHabilidade +
+                ", salario=" + salario +
+                ", capitao=" + capitao +
+                '}';
+    }
 }

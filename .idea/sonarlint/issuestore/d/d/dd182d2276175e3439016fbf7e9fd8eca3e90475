@@ -1,0 +1,7 @@
+
+Ksquid:S1066/"/Merge this if statement with the enclosing one.(«ô¯Âıÿÿÿÿ
+Ksquid:S10662"/Merge this if statement with the enclosing one.(‘„áúÿÿÿÿ
+…squid:UselessImportCheck"aRemove this unused import 'br.com.codenation.desafio.exceptions.IdentificadorUtilizadoException'.(×ùø
+]squid:UselessImportCheck"9Remove this unused import 'java.util.function.Predicate'.(ïÍ–¶
+nsquid:S3776#"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(ê µáÿÿÿÿÿ
+Lsquid:S3984-"5Throw this exception or remove this useless statement(Ñšà»

@@ -9,8 +9,6 @@ public class Time {
     private LocalDate dataCriacao;
     private String corUniformePrincipal;
     private String corUniformeSegundario;
-    private Jogador capitao;
-    private List<Jogador> jogadores = new ArrayList<>();
 
     public Time(Long id, String nome, LocalDate dataCriacao, String corUniformePrincipal, String corUniformeSegundario) {
         this.id = id;
@@ -60,21 +58,6 @@ public class Time {
         this.corUniformeSegundario = corUniformeSegundario;
     }
 
-    public Jogador getCapitao() {
-        return capitao;
-    }
-
-    public void setCapitao(Jogador capitao) {
-        this.capitao = capitao;
-    }
-
-    public List<Jogador> getJogadores() {
-        return jogadores;
-    }
-
-    public void setJogadores(List<Jogador> jogadores) {
-        this.jogadores = jogadores;
-    }
 
     @Override
     public boolean equals(Object o) {
@@ -89,5 +72,15 @@ public class Time {
     public int hashCode() {
         return Objects.hash(getId(), getNome());
     }
-    //git
+
+    @Override
+    public String toString() {
+        return "Time{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", dataCriacao=" + dataCriacao +
+                ", corUniformePrincipal='" + corUniformePrincipal + '\'' +
+                ", corUniformeSegundario='" + corUniformeSegundario + '\'' +
+                '}';
+    }
 }
