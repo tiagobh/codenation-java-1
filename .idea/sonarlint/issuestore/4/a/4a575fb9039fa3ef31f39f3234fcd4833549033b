@@ -1,13 +1,18 @@
 
-V
-squid:S106&"9Replace this use of System.out or System.err by a logger.(šÎæ8£»úŒâ-
-U
-squid:S106"9Replace this use of System.out or System.err by a logger.(ï·ïr8£»úŒâ-
-U
-squid:S106="9Replace this use of System.out or System.err by a logger.(¬òÔ98£»úŒâ-
-V
-squid:S106 "9Replace this use of System.out or System.err by a logger.(Ğú‘Ó8£»úŒâ-
-[
-squid:S106,"9Replace this use of System.out or System.err by a logger.(ÈÏ†÷øÿÿÿÿ8£»úŒâ-
-U
-squid:S106N"9Replace this use of System.out or System.err by a logger.(¬òÔ98£»úŒâ-
+isquid:S2259€"EA "NullPointerException" could be thrown; "orElse()" can return null.(âöëòøÿÿÿÿ8‹ßó¨â-
+bsquid:S2583%"DChange this condition so that it does not always evaluate to "false"(‰¦ÚÛ8ğ–â§â-
+Ysquid:S3984Ù"5Throw this exception or remove this useless statement(²œ…–ıÿÿÿÿ8öİ¨â-
+bsquid:S2583"DChange this condition so that it does not always evaluate to "false"(šƒöè8Ú¨ñ§â-
+Ssquid:S1066ú"/Merge this if statement with the enclosing one.(”İ°Ğûÿÿÿÿ8öİ¨â-
+hsquid:S2259s"EA "NullPointerException" could be thrown; "orElse()" can return null.(âöëòøÿÿÿÿ8‹ßó¨â-
+Usquid:S3655G"7Call "Optional#isPresent()" before accessing the value.(»¿±8öİ¨â-
+isquid:CommentedOutCodeLineF"<This block of commented-out lines of code should be removed.(˜ˆ“û8öİ¨â-
+Vsquid:S3655"7Call "Optional#isPresent()" before accessing the value.(·¿•´8öİ¨â-
+qsquid:S3776Ç"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(øÚ“Š8öİ¨â-
+Ssquid:S1066Û"/Merge this if statement with the enclosing one.(«ô¯Âıÿÿÿÿ8öİ¨â-
+‡squid:S1157À"cReplace these toUpperCase()/toLowerCase() and equals() calls with a single equalsIgnoreCase() call.(¿éÙÕøÿÿÿÿ8öİ¨â-
+isquid:S2259˜"EA "NullPointerException" could be thrown; "orElse()" can return null.(âöëòøÿÿÿÿ8‹ßó¨â-
+[squid:S3655‹"7Call "Optional#isPresent()" before accessing the value.(ú”°Êøÿÿÿÿ8öİ¨â-
+`squid:S11269"BReplace this if-then-else statement by a single method invocation.(¶üì€8ÇÍõ¨â-
+Nsquid:S1066Ş"/Merge this if statement with the enclosing one.(‰Å„é8öİ¨â-
+squid:S3923À"[Remove this conditional structure or edit its code blocks so that they're not all the same.(¿éÙÕøÿÿÿÿ8°„œ©â-

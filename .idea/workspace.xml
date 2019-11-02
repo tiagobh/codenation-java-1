@@ -2,15 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="371eea43-1c05-42a3-b7a0-e3ef8fe53ccf" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/2/222b7fb76140d497212b4ff23f021d2646c05cbf" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/a/4a575fb9039fa3ef31f39f3234fcd4833549033b" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/a/4a575fb9039fa3ef31f39f3234fcd4833549033b" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/d/bd4d41765ebc32448e9547f3e7c04aa4d858c7a4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/d/dd182d2276175e3439016fbf7e9fd8eca3e90475" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/com/codenation/DesafioMeuTimeApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/codenation/DesafioMeuTimeApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/codenation/domain/Jogador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/codenation/domain/Jogador.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/com/codenation/domain/Time.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/codenation/domain/Time.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/codenation/repository/DataLoader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/codenation/repository/JogadorRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/codenation/repository/TimeRepository.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/stdout.txt" beforeDir="false" afterPath="$PROJECT_DIR$/stdout.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -74,7 +73,8 @@
       <workItem from="1572092702449" duration="24000" />
       <workItem from="1572361286190" duration="2395000" />
       <workItem from="1572522073044" duration="547000" />
-      <workItem from="1572565716317" duration="15608000" />
+      <workItem from="1572565716317" duration="15716000" />
+      <workItem from="1572710107473" duration="6362000" />
     </task>
     <servers />
   </component>

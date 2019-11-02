@@ -9,6 +9,9 @@ public class Time {
     private LocalDate dataCriacao;
     private String corUniformePrincipal;
     private String corUniformeSegundario;
+    private Jogador capitao;
+
+
 
     public Time(Long id, String nome, LocalDate dataCriacao, String corUniformePrincipal, String corUniformeSegundario) {
         this.id = id;
@@ -56,6 +59,14 @@ public class Time {
 
     public void setCorUniformeSegundario(String corUniformeSegundario) {
         this.corUniformeSegundario = corUniformeSegundario;
+    }
+
+    public Jogador getCapitao() {
+        return capitao;
+    }
+
+    public void setCapitao(Jogador capitao) {
+        this.capitao = capitao;
     }
 
 
