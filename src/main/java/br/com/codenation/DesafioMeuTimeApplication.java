@@ -24,20 +24,17 @@ public class DesafioMeuTimeApplication implements MeuTimeInterface {
     @Desafio("incluirTime")
     public void incluirTime(Long id, String nome, LocalDate dataCriacao, String corUniformePrincipal, String corUniformeSecundario) {
         validarTime(id, nome, dataCriacao, corUniformePrincipal, corUniformeSecundario);
-        Time novotime = new Time(id, nome, dataCriacao, corUniformePrincipal, corUniformeSecundario);
-        times.add(novotime);
+        times.add(new Time(id, nome, dataCriacao, corUniformePrincipal, corUniformeSecundario));
     }
 
     @Desafio("incluirJogador")
     public void incluirJogador(Long id, Long idTime, String nome, LocalDate dataNascimento, Integer nivelHabilidade, BigDecimal salario) {
         validarJogador(id, idTime, nome, dataNascimento, nivelHabilidade, salario);
-        Jogador novoJogador = new Jogador(id, idTime, nome, dataNascimento, nivelHabilidade, salario);
-        jogadores.add(novoJogador);
+        jogadores.add(new Jogador(id, idTime, nome, dataNascimento, nivelHabilidade, salario));
     }
 
     @Desafio("definirCapitao")
     public void definirCapitao(Long idJogador) {
-        System.out.println("Definindo capitao " + idJogador);
         Jogador jogador = jogadores.stream().filter(j -> j.getId().equals(idJogador)).findFirst().orElseThrow(JogadorNaoEncontradoException::new);
         times.stream().filter(t -> t.getId().equals(jogador.getIdTime())).findFirst().orElseThrow(TimeNaoEncontradoException::new).setCapitao(jogador);
     }
@@ -47,22 +44,17 @@ public class DesafioMeuTimeApplication implements MeuTimeInterface {
         Time time = buscarTime(idTime);
         if(Objects.isNull(time.getCapitao()))
             throw new CapitaoNaoInformadoException("capitao nao informado");
-
         return time.getCapitao().getId();
     }
 
     @Desafio("buscarNomeJogador")
     public String buscarNomeJogador(Long idJogador) {
-        String nome = buscarJogador(idJogador).getNome();
-        System.out.println("Nome do jogador -> " + nome);
-        return nome;
+        return buscarJogador(idJogador).getNome();
     }
 
     @Desafio("buscarNomeTime")
     public String buscarNomeTime(Long idTime) {
-        String nome = buscarTime(idTime).getNome();
-        System.out.println("Nome do time -> " + nome);
-        return nome;
+        return buscarTime(idTime).getNome();
     }
 
     @Desafio("buscarJogadoresDoTime")
@@ -78,11 +70,6 @@ public class DesafioMeuTimeApplication implements MeuTimeInterface {
         if (Objects.isNull(js)) {
             return Collections.emptyList();
         }
-
-        js.forEach(j -> {
-            System.out.println("Jogadores do time " + idTime + " -> " + j);
-        });
-
         return js;
     }
 
@@ -91,15 +78,12 @@ public class DesafioMeuTimeApplication implements MeuTimeInterface {
         if (!timeExiste(idTime)) {
             throw new TimeNaoEncontradoException(TIME_INEXISTENTE);
         }
-
         Long tm = jogadores.stream().filter(j -> j.getIdTime().equals(idTime))
                 .sorted(Comparator.comparing(Jogador::getNivelHabilidade).reversed().thenComparing(Jogador::getId))
                 .limit(1)
                 .findFirst()
                 .orElseThrow(TimeNaoEncontradoException::new)
                 .getId();
-
-        System.out.println("Melhor jogador do time " + idTime + " -> " + tm);
         return tm;
     }
 
@@ -114,8 +98,6 @@ public class DesafioMeuTimeApplication implements MeuTimeInterface {
                 .findFirst()
                 .orElseThrow(TimeNaoEncontradoException::new)
                 .getId();
-
-        System.out.println("Melhor jogador do time " + idTime + " -> " + ja);
         return ja;
     }
 
@@ -128,10 +110,6 @@ public class DesafioMeuTimeApplication implements MeuTimeInterface {
                 .sorted(Comparator.comparing(Time::getId))
                 .map(Time::getId)
                 .collect(Collectors.toList());
-
-        tms.forEach(t -> {
-            System.out.println("buscarTimes -> " + t);
-        });
         return tms;
     }
 
@@ -147,48 +125,34 @@ public class DesafioMeuTimeApplication implements MeuTimeInterface {
                 .findFirst()
                 .orElseThrow(TimeNaoEncontradoException::new)
                 .getId();
-
-        System.out.println("Jogador maior salario do time " + idTime + " -> " + ja);
         return ja;
     }
 
     @Desafio("buscarSalarioDoJogador")
     public BigDecimal buscarSalarioDoJogador(Long idJogador) {
-        BigDecimal salario = buscarJogador(idJogador).getSalario();
-        System.out.println("salarioJogador " + idJogador + " -> " + salario.toString());
-        return salario;
+        return buscarJogador(idJogador).getSalario();
     }
 
     @Desafio("buscarTopJogadores")
     public List<Long> buscarTopJogadores(Integer top) {
         if (jogadores.isEmpty())
             return Collections.emptyList();
-
-        List<Long> topj = jogadores.stream()
+        return jogadores.stream()
                 .sorted(Comparator.comparing(Jogador::getNivelHabilidade).reversed().thenComparing(Jogador::getId))
                 .limit(top)
                 .map(Jogador::getId)
                 .collect(Collectors.toList());
-
-        topj.forEach(j ->{
-            System.out.println("topo jogador " + top + " -> " + j);
-        });
-        return topj;
     }
 
     @Desafio("buscarCorCamisaTimeDeFora")
     public String buscarCorCamisaTimeDeFora(Long timeDaCasa, Long timeDeFora) {
         Time tc = buscarTime(timeDaCasa);
         Time tf = buscarTime(timeDeFora);
-
-        String cor;
         if (tc.getCorUniformePrincipal().toUpperCase().equals(tf.getCorUniformePrincipal().toUpperCase())) {
-            cor =  tf.getCorUniformeSegundario();
+            return tf.getCorUniformeSegundario();
         } else {
-            cor =  tf.getCorUniformePrincipal();
+            return tf.getCorUniformePrincipal();
         }
-
-        return cor;
     }
 
     private void validarJogador(Long id, Long idTime, String nome, LocalDate dataNascimento, Integer nivelHabilidade, BigDecimal salario) {
